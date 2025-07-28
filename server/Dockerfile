@@ -47,4 +47,4 @@ EXPOSE 3001
 
 # Use our custom entrypoint script
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
