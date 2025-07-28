@@ -51,8 +51,6 @@ services:
     build:
       context: .
       dockerfile: server/Dockerfile
-    ports:
-      - "${HOST_BACKEND_PORT}:3001"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`rybbit.martin-linde.com`) && PathPrefix(`/api`)"
@@ -94,8 +92,6 @@ services:
       args:
         NEXT_PUBLIC_BACKEND_URL: ${BASE_URL}
         NEXT_PUBLIC_DISABLE_SIGNUP: ${DISABLE_SIGNUP}
-    ports:
-      - "${HOST_CLIENT_PORT}:3002"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.client.rule=Host(`rybbit.martin-linde.com`)"
