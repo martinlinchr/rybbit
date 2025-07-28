@@ -72,7 +72,7 @@ services:
       context: .
       dockerfile: server/Dockerfile
     ports:
-      - "${HOST_BACKEND_PORT}"
+      - "${HOST_BACKEND_PORT}:3001"
     environment:
       - NODE_ENV=production
       - CLICKHOUSE_HOST=http://clickhouse:8123
