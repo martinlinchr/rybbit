@@ -53,7 +53,7 @@ services:
       dockerfile: server/Dockerfile
     ports:
       - "3001:3001"
-  labels:
+    labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`rybbit.martin-linde.com`) && PathPrefix(`/api`)"
       - "traefik.http.routers.backend.entrypoints=websecure"
