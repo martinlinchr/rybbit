@@ -55,9 +55,9 @@ services:
       - "3001:3001"
     labels:
       - "traefik.enable=true"
-      - "traefik.https.routers.backend.rule=Host(`rybbit.martin-linde.com`) && PathPrefix(`/api`)"
-      - "traefik.https.routers.backend.entrypoints=websecure"
-      - "traefik.https.services.backend.loadbalancer.server.port=3001"
+      - "traefik.http.routers.backend.rule=Host(`rybbit.martin-linde.com`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.services.backend.loadbalancer.server.port=3001"
     environment:
       - NODE_ENV=production
       - CLICKHOUSE_HOST=http://clickhouse:8123
@@ -97,9 +97,9 @@ services:
       - "3002:3002"
     labels:
       - "traefik.enable=true"
-      - "traefik.https.routers.client.rule=Host(`rybbit.martin-linde.com`)"
-      - "traefik.https.routers.client.entrypoints=websecure"
-      - "traefik.https.services.client.loadbalancer.server.port=3002"
+      - "traefik.http.routers.client.rule=Host(`rybbit.martin-linde.com`)"
+      - "traefik.http.routers.client.entrypoints=websecure"
+      - "traefik.http.services.client.loadbalancer.server.port=3002"
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_BACKEND_URL=${BASE_URL}
